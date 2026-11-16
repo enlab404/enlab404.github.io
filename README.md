@@ -6,11 +6,13 @@ Não precisa de build, Node ou servidor.
 ## Estrutura
 
 ```
-index.html        → página única (menu lateral + área de conteúdo)
+index.html        → portfólio (menu lateral + área de conteúdo)
+identidade.html   → manual da marca: logo, paleta, tipografia, tom de voz e informações do EN lab
 css/style.css     → todo o visual (paleta, animações e responsivo)
 js/dados.js       → CONTEÚDO: perfil, formação, projetos, pesquisas e contatos
 js/app.js         → rotas, menu, abrir/fechar projetos, formulário
 assets/favicon.svg
+assets/marca/     → logos em SVG (horizontal, símbolo e ícone), com texto em curvas
 .nojekyll         → avisa o GitHub Pages para servir os arquivos como estão
 ```
 
