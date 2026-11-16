@@ -536,7 +536,8 @@
     el.insertAdjacentHTML('afterbegin', logoOrbita({ tamanho: Number(el.getAttribute('data-logo')) }));
   });
   document.querySelector('.trilho-rodape').innerHTML =
-    esc(dados.perfil.nome) + '<br>' + esc(dados.perfil.localizacao);
+    esc(dados.perfil.nome) + '<br>' + esc(dados.perfil.localizacao) +
+    '<br><a class="link-identidade" href="identidade.html">Identidade visual</a>';
 
   montarMenu();
   window.addEventListener('hashchange', navegar);
