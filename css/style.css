@@ -157,6 +157,8 @@ button { font: inherit; color: inherit; }
 }
 
 .trilho-rodape { margin-top: auto; font-size: 0.85rem; color: var(--texto-apagado); line-height: 1.5; }
+.trilho-rodape .link-identidade { display: inline-block; margin-top: 10px; color: var(--texto-suave); }
+.trilho-rodape .link-identidade:hover { color: var(--ciano-luz); }
 
 main { margin-left: var(--trilho); min-height: 100vh; outline: none; }
 
