@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Identidade visual | EN lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manual de identidade visual do EN lab: logo, paleta de cores, tipografia e informações da empresa.">
+  <meta name="theme-color" content="#05070D">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --abismo: #05070D; --casco: #0E1424; --casco-borda: #1A2542; --marinho-profundo: #0A1A3F;
+      --marinho: #16357A; --oceano: #1F4FA8; --ciano: #00D1E0; --ciano-luz: #7DF4FF; --nevoa: #E6EEF7;
+      --texto-suave: #A3B3CC; --texto-apagado: #7485A3;
+      --fonte: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --fonte-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    body { margin: 0; background: var(--abismo); color: var(--nevoa); font-family: var(--fonte); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { margin: 0; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; }
+    p { margin: 0; }
+    a { color: var(--ciano); text-underline-offset: 3px; }
+    a:hover { color: var(--ciano-luz); }
+    :focus-visible { outline: 2px solid var(--ciano-luz); outline-offset: 3px; border-radius: 4px; }
+    .mono { font-family: var(--fonte-mono); }
+
+    /* Barra */
+    .barra { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      height: 72px; padding: 0 48px; background: rgba(5, 7, 13, .9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--casco-borda); }
+    .barra img { height: 40px; display: block; }
+    .barra nav { display: flex; gap: 6px; flex-wrap: wrap; }
+    .barra nav a { color: var(--texto-suave); text-decoration: none; font-size: .9rem; padding: 8px 12px; border-radius: 8px; transition: color .2s, background-color .2s; }
+    .barra nav a:hover { color: var(--nevoa); background: rgba(31, 79, 168, .14); }
+    .voltar { font-size: .9rem; white-space: nowrap; }
+
+    /* Capa */
+    .capa { padding: 96px 48px 88px; border-bottom: 1px solid var(--casco-borda);
+      background: radial-gradient(ellipse 60% 90% at 88% 40%, var(--marinho-profundo) 0%, transparent 70%); position: relative; overflow: hidden; }
+    .capa-in { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+    .capa h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); letter-spacing: -.035em; margin: 14px 0 22px; }
+    .capa .olho { color: var(--ciano); font-size: .95rem; }
+    .capa .lead { font-size: 1.2rem; color: var(--texto-suave); max-width: 560px; font-weight: 300; }
+    .capa .versao { margin-top: 28px; color: var(--texto-apagado); font-size: .85rem; }
+    .capa-simbolo { width: 320px; }
+
+    /* Seções */
+    .secao { max-width: 1120px; margin: 0 auto; padding: 88px 48px 0; }
+    .secao:last-of-type { padding-bottom: 120px; }
+    .secao > h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 14px; }
+    .secao > .intro { color: var(--texto-suave); max-width: 640px; margin-bottom: 40px; }
+    .cartao { background: var(--casco); border: 1px solid var(--casco-borda); border-radius: 16px; }
+
+    /* Sobre */
+    .sobre { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; }
+    .sobre .cartao { padding: 32px; }
+    .sobre h3 { font-size: 1.1rem; margin-bottom: 14px; }
+    .ficha { margin: 0; display: grid; gap: 0; }
+    .ficha div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--casco-borda); }
+    .ficha div:first-child { border-top: none; padding-top: 0; }
+    .ficha dt { color: var(--texto-apagado); font-size: .88rem; }
+    .ficha dd { margin: 0; overflow-wrap: anywhere; }
+    .servicos { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+    .servicos li { padding-left: 30px; position: relative; }
+    .servicos li strong { display: block; font-weight: 600; }
+    .servicos li span { color: var(--texto-suave); font-size: .95rem; }
+    .servicos li::before, .marcador { content: ''; position: absolute; left: 0; top: 9px; width: 18px; height: 8px; border: 1.5px solid var(--ciano); border-radius: 50%; transform: rotate(-25deg); }
+    .servicos li::after { content: ''; position: absolute; left: 15px; top: 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--ciano-luz); }
+    .pilares { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    .pilares .cartao { padding: 26px 28px; }
+    .pilares h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .pilares p { color: var(--texto-suave); font-size: .95rem; }
+
+    /* Logo */
+    .logos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .logo-caixa { border-radius: 16px; border: 1px solid var(--casco-borda); overflow: hidden; display: flex; flex-direction: column; }
+    .logo-palco { height: 220px; display: flex; align-items: center; justify-content: center; padding: 32px; }
+    .logo-palco img { max-width: 100%; max-height: 100%; }
+    .logo-pe { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 20px; background: var(--casco); font-size: .9rem; }
+    .logo-pe span { color: var(--texto-suave); }
+    .f-escuro { background: var(--abismo); }
+    .f-claro { background: #F2F5FA; }
+    .f-degrade { background: linear-gradient(135deg, #0A1A3F 0%, #1F4FA8 100%); }
+    .f-xadrez { background-color: #DCE3EE; background-image: linear-gradient(45deg, #C3CDDC 25%, transparent 25%), linear-gradient(-45deg, #C3CDDC 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #C3CDDC 75%), linear-gradient(-45deg, transparent 75%, #C3CDDC 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0; }
+    .simbolos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
+    .simbolos .logo-palco { height: 200px; }
+    .regras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    .regras .cartao { padding: 24px 26px; }
+    .regras h3 { font-size: 1rem; margin-bottom: 10px; }
+    .regras p, .regras li { color: var(--texto-suave); font-size: .93rem; }
+    .regras ul { margin: 0; padding-left: 18px; }
+    .regras li + li { margin-top: 6px; }
+    .protecao { display: flex; align-items: center; justify-content: center; padding: 18px; margin-top: 14px; border-radius: 10px; background: var(--abismo); }
+    .protecao div { padding: 18px; outline: 1px dashed var(--ciano); outline-offset: 0; }
+    .protecao img { height: 44px; display: block; }
+
+    /* Paleta */
+    .paleta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .cor { border-radius: 14px; overflow: hidden; border: 1px solid var(--casco-borda); background: var(--casco); display: flex; flex-direction: column; }
+    .cor-amostra { height: 128px; border: none; width: 100%; cursor: pointer; position: relative; padding: 0; }
+    .cor-amostra .copiado { position: absolute; left: 12px; bottom: 10px; font-family: var(--fonte-mono); font-size: .75rem; padding: 3px 8px; border-radius: 6px;
+      background: rgba(5, 7, 13, .78); color: var(--nevoa); opacity: 0; transition: opacity .2s; }
+    .cor-amostra:hover .copiado, .cor-amostra:focus-visible .copiado, .cor-amostra.ok .copiado { opacity: 1; }
+    .cor-info { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 4px; }
+    .cor-nome { font-weight: 600; }
+    .cor-cod { font-family: var(--fonte-mono); font-size: .82rem; color: var(--texto-suave); }
+    .cor-uso { font-size: .88rem; color: var(--texto-apagado); margin-top: 4px; }
+    .grupo-tit { font-size: 1.05rem; margin: 40px 0 16px; }
+    .grupo-tit:first-of-type { margin-top: 0; }
+    .degrades { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .degrade { height: 150px; border-radius: 14px; padding: 18px 22px; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; }
+    .degrade strong { color: #fff; }
+    .degrade span { font-family: var(--fonte-mono); font-size: .8rem; color: var(--nevoa); }
+    .proporcao { display: flex; height: 54px; border-radius: 12px; overflow: hidden; margin-top: 18px; border: 1px solid var(--casco-borda); }
+    .proporcao div { display: flex; align-items: center; padding: 0 14px; font-family: var(--fonte-mono); font-size: .78rem; }
+
+    /* Tipografia */
+    .tipos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .tipo { padding: 32px; }
+    .tipo .amostra { font-size: 4.4rem; line-height: 1; margin: 18px 0; letter-spacing: -.03em; }
+    .tipo p { color: var(--texto-suave); font-size: .95rem; }
+    .pesos { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px; font-size: 1.1rem; }
+    .escala { margin-top: 20px; }
+    .escala div { display: grid; grid-template-columns: 170px 1fr; gap: 20px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--casco-borda); }
+    .escala .rot { font-family: var(--fonte-mono); font-size: .8rem; color: var(--texto-apagado); }
+
+    /* Elementos */
+    .elementos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .elementos .cartao { padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+    .elementos h3 { font-size: 1rem; }
+    .elementos p { color: var(--texto-suave); font-size: .92rem; }
+    .vitrine { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-height: 52px; }
+    .botao { display: inline-flex; align-items: center; height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 600; font-size: .92rem; text-decoration: none; border: 1px solid transparent; }
+    .botao-principal { background: var(--ciano); color: var(--abismo); }
+    .botao-contorno { border-color: #2A3A5E; color: var(--nevoa); }
+    .etiqueta { padding: 3px 10px; border-radius: 6px; background: var(--abismo); border: 1px solid var(--casco-borda); font-family: var(--fonte-mono); font-size: .78rem; }
+    .orbita-mini { position: relative; display: inline-block; width: 30px; height: 13px; }
+    .orbita-mini::before { content: ''; position: absolute; inset: 0; border: 2px solid var(--ciano); border-radius: 50%; transform: rotate(-25deg); }
+    .orbita-mini::after { content: ''; position: absolute; right: -3px; top: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--ciano-luz); }
+    .situacao { font-size: .85rem; color: var(--texto-suave); display: inline-flex; align-items: center; gap: 8px; }
+    .situacao::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--ciano); box-shadow: 0 0 0 4px rgba(0, 209, 224, .15); }
+
+    /* Voz */
+    .voz { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .voz .cartao { padding: 28px 30px; }
+    .voz h3 { font-size: 1rem; margin-bottom: 14px; }
+    .voz ul { margin: 0; padding-left: 18px; color: var(--texto-suave); }
+    .voz li + li { margin-top: 8px; }
+    .exemplo { margin-top: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .exemplo .cartao { padding: 22px 26px; }
+    .exemplo .rot { font-size: .82rem; margin-bottom: 8px; }
+    .exemplo .sim .rot { color: var(--ciano); }
+    .exemplo .nao .rot { color: #FF9AAE; }
+
+    /* Downloads */
+    .downloads { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--casco-borda); }
+    .downloads li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 4px; border-bottom: 1px solid var(--casco-borda); }
+    .downloads span { color: var(--texto-suave); font-size: .92rem; }
+    .downloads a { font-weight: 500; white-space: nowrap; }
+
+    .rodape { border-top: 1px solid var(--casco-borda); padding: 32px 48px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--texto-apagado); font-size: .88rem; }
+
+    @media (max-width: 980px) {
+      .barra nav { display: none; }
+      .capa-in, .sobre { grid-template-columns: 1fr; }
+      .capa-simbolo { width: 200px; }
+      .pilares, .regras, .elementos, .simbolos { grid-template-columns: 1fr; }
+      .paleta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .barra { padding: 0 20px; }
+      .capa { padding: 56px 22px; }
+      .secao { padding: 64px 22px 0; }
+      .logos, .degrades, .tipos, .voz, .exemplo { grid-template-columns: 1fr; }
+      .ficha div { grid-template-columns: 1fr; gap: 2px; }
+      .escala div { grid-template-columns: 1fr; gap: 4px; }
+      .tipo .amostra { font-size: 3.2rem; }
+      .rodape { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="barra">
+    <a href="index.html" aria-label="EN lab, voltar ao portfólio"><img src="assets/marca/enlab-horizontal-fundo-escuro.svg" alt="EN lab"></a>
+    <nav aria-label="Seções do manual">
+      <a href="#sobre">Sobre</a>
+      <a href="#logo">Logo</a>
+      <a href="#cores">Cores</a>
+      <a href="#tipografia">Tipografia</a>
+      <a href="#elementos">Elementos</a>
+      <a href="#voz">Tom de voz</a>
+      <a href="#arquivos">Arquivos</a>
+    </nav>
+    <a class="voltar" href="index.html">Ver portfólio</a>
+  </header>
+
+  <section class="capa">
+    <div class="capa-in">
+      <div>
+        <p class="olho">Manual de identidade visual</p>
+        <h1>EN lab</h1>
+        <p class="lead">Logo, cores, tipografia e jeito de falar da marca, para que tudo que leva o nome EN lab tenha a mesma cara.</p>
+        <p class="versao mono">Versão 1.0 · outubro de 2026</p>
+      </div>
+      <img class="capa-simbolo" src="assets/marca/enlab-simbolo-fundo-escuro.svg" alt="Símbolo Órbita do EN lab">
+    </div>
+  </section>
+
+  <main>
+    <!-- ============ SOBRE ============ -->
+    <section class="secao" id="sobre" aria-labelledby="t-sobre">
+      <h2 id="t-sobre">Sobre o EN lab</h2>
+      <p class="intro">O EN lab é um laboratório de software de Recife. Desenvolve sistemas web sob medida para empresas e instituições e leva para dentro deles o que aprende na pesquisa acadêmica.</p>
+
+      <div class="sobre">
+        <div class="cartao">
+          <h3>Ficha da marca</h3>
+          <dl class="ficha">
+            <div><dt>Nome</dt><dd>EN lab (escrito <span class="mono">en/lab</span> na logo)</dd></div>
+            <div><dt>Significado</dt><dd>Efraim Negreiros Lab</dd></div>
+            <div><dt>Assinatura</dt><dd>Desenvolvimento de software e pesquisa aplicada</dd></div>
+            <div><dt>Responsável</dt><dd>Efraim José Negreiros dos Santos</dd></div>
+            <div><dt>Cidade</dt><dd>Recife, PE</dd></div>
+            <div><dt>E-mail</dt><dd><a href="mailto:enlab404@gmail.com">enlab404@gmail.com</a></dd></div>
+            <div><dt>Site</dt><dd><a href="https://enlab404.github.io/">enlab404.github.io</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/efraimjnegreiros">github.com/efraimjnegreiros</a></dd></div>
+          </dl>
+        </div>
+        <div class="cartao">
+          <h3>O que fazemos</h3>
+          <ul class="servicos">
+            <li><strong>Sistemas de gestão</strong><span>Cadastros, pedidos, financeiro, fluxo de caixa, DRE e relatórios.</span></li>
+            <li><strong>CRM e funis de vendas</strong><span>Kanban com etapas e campos personalizados, histórico e permissões.</span></li>
+            <li><strong>Sites e portais</strong><span>Sites institucionais e portais com painel para o cliente atualizar.</span></li>
+            <li><strong>Dados e inteligência artificial</strong><span>Análises, painéis e modelos de aprendizado de máquina.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pilares">
+        <div class="cartao"><h3>Sob medida</h3><p>Cada sistema parte do jeito como o cliente trabalha, e não de um modelo pronto.</p></div>
+        <div class="cartao"><h3>Base em pesquisa</h3><p>Dados, redes e aprendizado de máquina estudados na universidade e aplicados em produto.</p></div>
+        <div class="cartao"><h3>Entrega contínua</h3><p>Versões curtas e frequentes, com o cliente testando e ajustando o rumo cedo.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ LOGO ============ -->
+    <section class="secao" id="logo" aria-labelledby="t-logo">
+      <h2 id="t-logo">Logo</h2>
+      <p class="intro">O símbolo Órbita mostra o "en" com duas órbitas e um elétron ciano. A órbita da frente passa por trás das letras, o que dá profundidade. Ao lado, a palavra <span class="mono">en/lab</span>, com a barra em ciano.</p>
+
+      <div class="logos">
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-escuro"><img src="assets/marca/enlab-horizontal-fundo-escuro.svg" alt="Logo horizontal sobre fundo escuro"></div>
+          <figcaption class="logo-pe">Principal <span>fundo escuro</span></figcaption>
+        </figure>
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-claro"><img src="assets/marca/enlab-horizontal-fundo-claro.svg" alt="Logo horizontal sobre fundo claro"></div>
+          <figcaption class="logo-pe">Fundo claro <span>documentos e impressos</span></figcaption>
+        </figure>
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-degrade"><img src="assets/marca/enlab-horizontal-branco.svg" alt="Logo branca sobre degradê"></div>
+          <figcaption class="logo-pe">Branca <span>sobre degradê ou foto</span></figcaption>
+        </figure>
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-claro"><img src="assets/marca/enlab-horizontal-preto.svg" alt="Logo preta sobre fundo claro"></div>
+          <figcaption class="logo-pe">Preta <span>impressão em uma cor e carimbos</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="simbolos">
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-escuro"><img src="assets/marca/enlab-simbolo-fundo-escuro.svg" alt="Símbolo sobre fundo escuro" style="height:150px"></div>
+          <figcaption class="logo-pe">Símbolo <span>fundo escuro</span></figcaption>
+        </figure>
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-claro"><img src="assets/marca/enlab-simbolo-fundo-claro.svg" alt="Símbolo sobre fundo claro" style="height:150px"></div>
+          <figcaption class="logo-pe">Símbolo <span>fundo claro</span></figcaption>
+        </figure>
+        <figure class="logo-caixa" style="margin:0">
+          <div class="logo-palco f-xadrez"><img src="assets/marca/enlab-icone-app.svg" alt="Ícone de aplicativo" style="height:130px"></div>
+          <figcaption class="logo-pe">Ícone <span>favicon, avatar, app</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="regras">
+        <div class="cartao">
+          <h3>Área de proteção</h3>
+          <p>Deixe em volta da logo um espaço livre igual à altura das letras "en". Nada de texto ou imagem dentro dele.</p>
+          <div class="protecao"><div><img src="assets/marca/enlab-horizontal-fundo-escuro.svg" alt=""></div></div>
+        </div>
+        <div class="cartao">
+          <h3>Tamanho mínimo</h3>
+          <ul>
+            <li>Logo horizontal: 32 px de altura na tela, 12 mm no impresso.</li>
+            <li>Símbolo sozinho: 24 px na tela, 8 mm no impresso.</li>
+            <li>Abaixo de 32 px, use o ícone de aplicativo.</li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3>Não faça</h3>
+          <ul>
+            <li>Mudar as cores ou trocar a fonte da palavra.</li>
+            <li>Esticar, inclinar ou girar a logo.</li>
+            <li>Aplicar sombra, contorno ou brilho.</li>
+            <li>Usar a versão escura sobre fundo escuro.</li>
+            <li>Separar o "/" ciano do resto da palavra.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CORES ============ -->
+    <section class="secao" id="cores" aria-labelledby="t-cores">
+      <h2 id="t-cores">Paleta de cores</h2>
+      <p class="intro">Azul-marinho em degradê, ciano e preto. O fundo é quase sempre escuro, o ciano aparece pouco e sempre com função: destacar, indicar ação ou mostrar que algo está ativo. Clique em uma cor para copiar o código.</p>
+
+      <h3 class="grupo-tit">Principais</h3>
+      <div class="paleta" data-cores='[
+        {"nome":"Abismo","hex":"#05070D","uso":"Fundo principal e texto sobre claro"},
+        {"nome":"Marinho Profundo","hex":"#0A1A3F","uso":"Início do degradê, fundos de destaque"},
+        {"nome":"Azul Oceano","hex":"#1F4FA8","uso":"Fim do degradê, órbita de trás"},
+        {"nome":"Ciano","hex":"#00D1E0","uso":"Destaques, links, botões e o \"/\" da logo"}
+      ]'></div>
+
+      <h3 class="grupo-tit">Apoio</h3>
+      <div class="paleta" data-cores='[
+        {"nome":"Casco","hex":"#0E1424","uso":"Cartões e superfícies"},
+        {"nome":"Borda","hex":"#1A2542","uso":"Linhas e contornos"},
+        {"nome":"Marinho","hex":"#16357A","uso":"Botões e títulos em fundo claro"},
+        {"nome":"Ciano Luz","hex":"#7DF4FF","uso":"Elétron, brilhos e hover"},
+        {"nome":"Névoa","hex":"#E6EEF7","uso":"Texto sobre fundo escuro"},
+        {"nome":"Texto suave","hex":"#A3B3CC","uso":"Parágrafos secundários"},
+        {"nome":"Texto apagado","hex":"#7485A3","uso":"Legendas e rótulos"},
+        {"nome":"Gelo","hex":"#F2F5FA","uso":"Fundo das peças claras"}
+      ]'></div>
+
+      <h3 class="grupo-tit">Degradês</h3>
+      <div class="degrades">
+        <div class="degrade" style="background: linear-gradient(135deg, #0A1A3F 0%, #1F4FA8 100%);">
+          <strong>Degradê Marinho</strong><span>135° · #0A1A3F → #1F4FA8</span>
+        </div>
+        <div class="degrade" style="background: linear-gradient(135deg, #05070D 0%, #0A1A3F 55%, #00D1E0 100%);">
+          <strong>Degradê Profundidade</strong><span>135° · #05070D → #0A1A3F → #00D1E0</span>
+        </div>
+      </div>
+
+      <h3 class="grupo-tit">Proporção de uso</h3>
+      <div class="proporcao" aria-label="Proporção aproximada de uso das cores">
+        <div style="flex: 60; background: #05070D; color: #A3B3CC;">Abismo 60%</div>
+        <div style="flex: 20; background: #0E1424; color: #A3B3CC;">Casco 20%</div>
+        <div style="flex: 12; background: linear-gradient(90deg, #0A1A3F, #1F4FA8); color: #E6EEF7;">Marinho 12%</div>
+        <div style="flex: 8; background: #00D1E0; color: #05070D;">Ciano 8%</div>
+      </div>
+    </section>
+
+    <!-- ============ TIPOGRAFIA ============ -->
+    <section class="secao" id="tipografia" aria-labelledby="t-tipo">
+      <h2 id="t-tipo">Tipografia</h2>
+      <p class="intro">Duas famílias gratuitas do Google Fonts. A Sora faz quase tudo; a JetBrains Mono entra só em detalhes técnicos, como datas, códigos e tecnologias.</p>
+
+      <div class="tipos">
+        <div class="cartao tipo">
+          <p>Títulos e textos</p>
+          <div class="amostra">Sora Aa</div>
+          <p>Geométrica e arredondada, com cara de tecnologia sem ficar fria.</p>
+          <div class="pesos"><span style="font-weight:300">Light 300</span><span style="font-weight:400">Regular 400</span><span style="font-weight:600">SemiBold 600</span><span style="font-weight:700">Bold 700</span></div>
+        </div>
+        <div class="cartao tipo">
+          <p>Detalhes técnicos</p>
+          <div class="amostra mono">Mono&nbsp;01</div>
+          <p>JetBrains Mono, para anos, códigos de cor, etiquetas de tecnologia e números.</p>
+          <div class="pesos mono"><span style="font-weight:400">Regular 400</span><span style="font-weight:500">Medium 500</span></div>
+        </div>
+      </div>
+
+      <div class="escala">
+        <div><span class="rot">Título 1 · 64 px · 600</span><span style="font-size:clamp(2.2rem,5vw,4rem);font-weight:600;letter-spacing:-.035em;line-height:1.1">Ideias em órbita</span></div>
+        <div><span class="rot">Título 2 · 34 px · 600</span><span style="font-size:2.1rem;font-weight:600;letter-spacing:-.02em">Projetos comerciais</span></div>
+        <div><span class="rot">Título 3 · 20 px · 600</span><span style="font-size:1.25rem;font-weight:600">Inout: operação e finanças</span></div>
+        <div><span class="rot">Texto · 17 px · 400</span><span style="color:#A3B3CC">Sistemas sob medida para quem precisa organizar a operação e decidir com dados.</span></div>
+        <div><span class="rot">Detalhe · 14 px · mono</span><span class="mono" style="font-size:.85rem;color:#00D1E0">2026 · React · NestJS</span></div>
+      </div>
+    </section>
+
+    <!-- ============ ELEMENTOS ============ -->
+    <section class="secao" id="elementos" aria-labelledby="t-elem">
+      <h2 id="t-elem">Elementos visuais</h2>
+      <p class="intro">Peças pequenas que se repetem no site, nas apresentações e nos impressos.</p>
+      <div class="elementos">
+        <div class="cartao">
+          <h3>Mini órbita</h3>
+          <div class="vitrine"><span class="orbita-mini"></span><span class="orbita-mini" style="opacity:.4"></span></div>
+          <p>Marcador de lista e indicador de item ativo no menu. Acesa em ciano quando ativa.</p>
+        </div>
+        <div class="cartao">
+          <h3>Botões</h3>
+          <div class="vitrine"><span class="botao botao-principal">Ver projetos</span><span class="botao botao-contorno">Contato</span></div>
+          <p>Ciano preenchido para a ação principal, contorno para a secundária. Sempre arredondados.</p>
+        </div>
+        <div class="cartao">
+          <h3>Etiquetas e situação</h3>
+          <div class="vitrine"><span class="etiqueta">React</span><span class="etiqueta">NestJS</span><span class="situacao">Em produção</span></div>
+          <p>Etiquetas em mono para tecnologias. O ponto ciano com halo indica algo vivo ou em andamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VOZ ============ -->
+    <section class="secao" id="voz" aria-labelledby="t-voz">
+      <h2 id="t-voz">Tom de voz</h2>
+      <p class="intro">O EN lab fala como um técnico que explica bem: direto, próximo e sem jargão desnecessário.</p>
+      <div class="voz">
+        <div class="cartao">
+          <h3>Como falamos</h3>
+          <ul>
+            <li>Frases curtas e verbos de ação: organizar, acompanhar, decidir.</li>
+            <li>Falamos do problema do cliente antes da tecnologia.</li>
+            <li>Números e resultados só quando forem reais.</li>
+            <li>Tratamento por "você", com educação e sem formalidade excessiva.</li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3>O que evitamos</h3>
+          <ul>
+            <li>Promessas vagas como "solução inovadora e disruptiva".</li>
+            <li>Siglas técnicas sem explicar o que significam.</li>
+            <li>Excesso de exclamações e caixa alta.</li>
+            <li>Citar clientes sem autorização.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exemplo">
+        <div class="cartao sim"><p class="rot">Assim</p><p>"Seu financeiro em um só lugar: contas, fluxo de caixa e DRE prontos no fim do mês."</p></div>
+        <div class="cartao nao"><p class="rot">Assim não</p><p>"Solução disruptiva de gestão financeira baseada em tecnologia de ponta!!!"</p></div>
+      </div>
+    </section>
+
+    <!-- ============ ARQUIVOS ============ -->
+    <section class="secao" id="arquivos" aria-labelledby="t-arq">
+      <h2 id="t-arq">Arquivos da marca</h2>
+      <p class="intro">SVGs com o texto em curvas: abrem iguais em qualquer programa, mesmo sem as fontes instaladas.</p>
+      <ul class="downloads">
+        <li><div>Logo horizontal, fundo escuro <span>principal</span></div><a href="assets/marca/enlab-horizontal-fundo-escuro.svg" download>Baixar SVG</a></li>
+        <li><div>Logo horizontal, fundo claro <span>documentos</span></div><a href="assets/marca/enlab-horizontal-fundo-claro.svg" download>Baixar SVG</a></li>
+        <li><div>Logo horizontal branca <span>sobre degradê ou foto</span></div><a href="assets/marca/enlab-horizontal-branco.svg" download>Baixar SVG</a></li>
+        <li><div>Logo horizontal preta <span>uma cor</span></div><a href="assets/marca/enlab-horizontal-preto.svg" download>Baixar SVG</a></li>
+        <li><div>Símbolo, fundo escuro</div><a href="assets/marca/enlab-simbolo-fundo-escuro.svg" download>Baixar SVG</a></li>
+        <li><div>Símbolo, fundo claro</div><a href="assets/marca/enlab-simbolo-fundo-claro.svg" download>Baixar SVG</a></li>
+        <li><div>Ícone de aplicativo <span>favicon e avatar</span></div><a href="assets/marca/enlab-icone-app.svg" download>Baixar SVG</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <span>EN lab · Recife, PE</span>
+    <a href="index.html">Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function () {
+      function rgb(hex) {
+        var n = parseInt(hex.slice(1), 16);
+        return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+      }
+      function claro(hex) {
+        var c = rgb(hex);
+        return (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) > 150;
+      }
+      document.querySelectorAll('[data-cores]').forEach(function (grade) {
+        JSON.parse(grade.getAttribute('data-cores')).forEach(function (cor) {
+          var c = rgb(cor.hex);
+          var item = document.createElement('div');
+          item.className = 'cor';
+          item.innerHTML =
+            '<button type="button" class="cor-amostra" style="background:' + cor.hex + (claro(cor.hex) ? '' : '') + '" aria-label="Copiar ' + cor.nome + ' ' + cor.hex + '">' +
+              '<span class="copiado">Copiar ' + cor.hex + '</span></button>' +
+            '<div class="cor-info"><span class="cor-nome"></span>' +
+              '<span class="cor-cod">' + cor.hex + '</span>' +
+              '<span class="cor-cod">RGB ' + c.join(', ') + '</span>' +
+              '<span class="cor-uso"></span></div>';
+          item.querySelector('.cor-nome').textContent = cor.nome;
+          item.querySelector('.cor-uso').textContent = cor.uso;
+          var botao = item.querySelector('.cor-amostra');
+          var aviso = botao.querySelector('.copiado');
+          botao.addEventListener('click', function () {
+            var feito = function () {
+              aviso.textContent = 'Copiado';
+              botao.classList.add('ok');
+              setTimeout(function () { aviso.textContent = 'Copiar ' + cor.hex; botao.classList.remove('ok'); }, 1400);
+            };
+            if (navigator.clipboard) navigator.clipboard.writeText(cor.hex).then(feito, function () {});
+          });
+          grade.appendChild(item);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
